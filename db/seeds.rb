@@ -13,7 +13,8 @@ end
     name: Faker::Name.unique.name,
     email: Faker::Internet.unique.email,
     phone: Faker::PhoneNumber.phone_number,
-    category: %w[bug feature].sample
+    category: %w[bug feature].sample,
+    availability: true
   )
 end
 
@@ -28,7 +29,7 @@ end
 
 20.times do
   Task.create(
-    name: Faker::Lorem.sentence(word_count: 4),
+    name: %w[bug feature].sample,
     description: Faker::Lorem.paragraph,
     due_date: Faker::Date.forward(days: 30),
     project: Project.all.sample,
